@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__.'/../../../app/config/DbHandler.php';
-require_once __DIR__.'/../Entity/Article.php';
+require_once __DIR__.'/../../../app/config/dbHandler.php';
+require_once __DIR__.'/../Entity/article.php';
 
 class ArticleRepository {
   private $_db;
 
   public function __construct() {
-    $this->_db = DbHandler::getDb();
+    $this->_db = dbHandler::getDb();
   }
   
   public function findAll() {

@@ -1,0 +1,32 @@
+DEVOIR PHP/MySQL: Continuez le TP commencé ensemble.
+DATE BUTOIRE: 18 Décembre 2020 00:00
+CONSIGNE:
+Actuellement, il est possible d'afficher une liste d'articles sur la page d'accueil à partir d'une base de données.
+
+Le but du TP sera de donner la possibilité à l'utilisateur de rentrer un nouvel article, de le modifier et de le supprimer.
+
+Pour cela, il faudra créer un formulaire d'inscription simple (Nom, Prénom, pseudo, mot de passe à l'inscription) (modifié) 
+
+Et un formulaire de connexion (pseudo, mot de passe)
+
+Au début, aucun articles. Chaque nouvel article doit être lié à son auteur (utilisateur courant), de façon à ce que seul le créateur de l'article puisse le modifier/supprimer.
+
+ORGANISATION DU SITE:
+1 page d'accueil (message de bienvenue, menu principale)
+1 page listant tous les articles en base et leur auteur (selon le modèle du TP commencé ensemble)
+1 page d'administration pour l'édition ou la suppression d'article.
+1 page en cas d'erreur 404 avec proposition de retour à l'accueil.
+
+CONCERNANT LA PAGE D'ADMINISTRATION
+Elle doit être accessible uniquement si l'utilisateur souhaitant éditer ou supprimer l'article en est bien l'auteur.
+
+CONCERNANT LA BASE DE DONNEES
+Vous pouvez avoir uniquement 2 tables en bases: Article et User
+Dans la table article, il faudra un champ supplémentaire pour lier l'article à son auteur (author_id: clé étrangère).
+Si vous n'êtes pas à l'aise avec la gestion des clés en base, vous pouvez gérer l'appartenance Article/User directement en PHP
+
+Pour tous le reste (graphique, organisation visuel, scripts JS, utilisation de Bootstrap...), vous êtes libre.
+
+Je rappelle la date butoire: Le 18 Décembre 2020 à minuit, donc un peu plus d'un mois.
+
+Cela vous laisse le temps de vous améliorer en PHP pour ce TP en prenant les bonnes habitudes (fouiller dans la doc, sur les forums, etc pour résoudre des manquements ou débugger).

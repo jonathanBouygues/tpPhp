@@ -3,24 +3,21 @@
   <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
-    <title>TP PHP Blog</title>
+    <title>Listing</title>
 
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
 
+    <!-- header -->
+    <?php include('../src/BlogBundle/Resources/views/header.php'); ?>
+
+    <!-- main -->
     <div class="wrapper">
 
-      <nav class="enabled">
-        <ul>
-          <li><a href="/">Acceuil</a></li>
-          <li><a href="/admin">Admin</a></li>
-        </ul>
-      </nav>
-
       <div class="articles">
-      <?php foreach ($articles as $article): ?>
+      <?php foreach ($testBeta['articles'] as $article): ?>
         <article>
           <h1><?= $article->getTitle() ?></h1>
           <div class="meta-data">
