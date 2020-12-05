@@ -1,6 +1,7 @@
 <?php
 
 class Article {
+  private $_id;
   private $_title;
   private $_author;
   private $_category;
@@ -9,11 +10,13 @@ class Article {
   private $_content;
 
   public function __construct(
+    string $id,
     string $title,
     string $author,
     string $category,
     string $content
   ) {
+    $this->_id = $id;
     $this->_title = $title;
     $this->_author = $author;
     $this->_category = $category;
@@ -22,6 +25,7 @@ class Article {
     $this->_content = $content;
   }
 
+  public function getID(): string {return $this->_id;}
   public function getTitle(): string { return $this->_title; }
   public function getAuthor(): string { return $this->_author; }
   public function getCategory(): string { return $this->_category; }

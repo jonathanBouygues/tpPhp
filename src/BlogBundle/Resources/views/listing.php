@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <title>Listing</title>
-
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
 
   <body>
@@ -14,10 +15,10 @@
     <?php include('../src/BlogBundle/Resources/views/header.php'); ?>
 
     <!-- main -->
-    <div class="wrapper">
+    <main class="containerListing">
 
       <div class="articles">
-      <?php foreach ($testBeta['articles'] as $article): ?>
+      <?php foreach ($viewData['articles'] as $article): ?>
         <article>
           <h1><?= $article->getTitle() ?></h1>
           <div class="meta-data">
@@ -30,7 +31,12 @@
       <?php endforeach; ?>
       </div>
     
-    </div>
+    </main>
+
+    <!-- footer -->
+    <?php 
+        include('../src/BlogBundle/Resources/views/footer.php'); 
+    ?>
     
     <script src="/js/nav.js"></script>
   </body>

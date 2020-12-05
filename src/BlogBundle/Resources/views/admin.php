@@ -3,12 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
     <title>Admin</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/dynaAdmin.js" defer></script>
 </head>
 <body>
 
     <!-- header -->
     <?php include('../src/BlogBundle/Resources/views/header.php'); ?>
+
+
+    <!-- main -->
+    <main class="containerAdmin">
+        <h1>Administratif</h1>
+
+        <div class="containerActionAdmin">
+            <div class="containerNew">
+                <h2>New article</h2>
+
+                <form action="index.php" method="get">
+                    <label for="">Title</label>
+                    <input type="text" name="title" id="">
+                    <label for="">Author</label>
+                    <input type="text" name="author">
+                    <label for="">Category</label>
+                    <input type="text" name="category">
+                    <label for="">Content</label>
+                    <input type="text" name="content">
+                    <input type="hidden" name="page" value="admin">
+                    <input type="submit">
+                </form>
+            </div>
+
+            <div class="containerModDel">
+                <h2>Modify/Delete</h2>
+
+                <select name="" id="valueArticle">
+                    <?php                    
+                        foreach($viewData['articles'] as $article) {
+                        $dataAdmin .= '<option value="'.$article->getID().'">'.$article->getTitle().'</option>';
+                        }
+                        echo $dataAdmin;
+                    ?>
+                </select>
+                <div>
+                    <form id="formDelArt" action="index.php" method="get">
+                        <input type="hidden" name="valueDel" value="">
+                        <input type="hidden" name="page" value="admin">
+                        <input type="submit" value="Supprimer">
+                    </form>
+                    <button id="actionMod">Modifier</button>
+                    <form id="formModArt" action="index.php" method="get">
+                        <input type="" name="valueMod" value="">
+                        <input type="hidden" name="page" value="admin">
+                        <input type="submit" value="Modifier form">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- footer -->
+    <?php 
+        include('../src/BlogBundle/Resources/views/footer.php'); 
+    ?>
 
 
 </body>

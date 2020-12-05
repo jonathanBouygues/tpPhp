@@ -30,4 +30,10 @@ class UserRepository {
     
     return $users;
   }
+
+  public function newUser($newUserNom,$newUserPrenom,$newUserPseudo, $newUserMdp, $newUserCreate) {
+    $results = $this->_db->prepare("INSERT INTO `user`(`user_nom`, `user_prenom`, `user_pseudo`, `user_mdp`, `user_created`) VALUES ('$newUserNom','$newUserPrenom','$newUserPseudo','$newUserMdp','$newUserCreate')");
+    $results->execute();
+  }
+
 }

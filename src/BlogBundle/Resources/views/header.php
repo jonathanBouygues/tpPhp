@@ -1,5 +1,5 @@
 <header>
-  <nav class="enabled">
+  <nav>
       <ul>
         <li>
           <form action="index.php" method="get">
@@ -22,12 +22,9 @@
       </ul>
   </nav>
 
-  <div>
+  <div class="log">
   
-    <?php
-      echo '<span>'.$identity.'<span>';
-    ?>
-  
+    <?php echo '<span>'.$identity.'</span>';?>
     <button>Déconnexion</button>
   </div>
 </header>

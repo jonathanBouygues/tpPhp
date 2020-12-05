@@ -1,30 +1,56 @@
 <?php
 
-
-// Start the session
+// Start the session and get the pseudo
 session_start();
-
-if(isset($_GET['pseudo'])) {
+if((isset($_GET['pseudo'])) && (isset($_GET['password']))) {
   $_SESSION['pseudo'] = $_GET['pseudo'];
+  $_SESSION['password'] = hash('sha256',trim($_GET['password']));
 }
 
-// Integrate the listing of articles
-require_once __DIR__.'/../src/BlogBundle/Repository/articleRepository.php';
+
+// Integrate the listing of articles/users
 require_once __DIR__.'/../src/BlogBundle/Repository/userRepository.php';
+require_once __DIR__.'/../src/BlogBundle/Repository/articleRepository.php';
+
+
+// Create a new object and request to select
+$users = new UserRepository();
+$stockUsers = $users->findAll();
+
+
+// Initialisation
+$identity = "Bonjour ";
+$statut = "KO ";
+
+
+// User's test
+if ((isset($_SESSION['pseudo'])) && (isset($_SESSION['password']))) { 
+  foreach($stockUsers as $user) {
+    $actualPseudo = $user->getUserPseudo();
+    $actualPassword = $user->getUserMdp();
+    
+    if(($actualPseudo === $_SESSION['pseudo']) && ($actualPassword === $_SESSION['password'])) {
+      $actualID = $user->getUserID();
+      $identity = $identity.ucfirst($_SESSION['pseudo']);
+      $statut = "OK";
+    } 
+  }
+}
 
 
 // Global controller
 class MainController {
 
   private $path_of_views = "../src/BlogBundle/Resources/views";
-  
+  private $activeUser = 'pistoljo';
+
   public function listingAction() {
 
-    $articles = (new ArticleRepository())->findAll();
+    $articles = (new ArticleRepository())->findAll($this->activeUser);
 
     $response = [
         'view' => $this->path_of_views."/listing.php",
-        'articles' => $articles
+        'articles' => $articles,
     ];
 
     return $response;
@@ -42,8 +68,11 @@ class MainController {
 
   public function adminAction() {
 
+    $articles = (new ArticleRepository())->findAll($this->activeUser);
+
     $response = [
-      'view' => $this->path_of_views."/admin.php"
+      'view' => $this->path_of_views."/admin.php",
+      'articles' => $articles
     ];
 
     return $response;
@@ -67,6 +96,18 @@ class MainController {
     return $response;
   }
 
+  public function setUserActive($userActive) {
+    $this->activeUser = $userActive;
+  }
+
+  public function newArticle($artTit,$artAut,$artCat,$artCon,$artCre,$artUser) {
+    $newArticle = (new ArticleRepository())->newArticle($artTit,$artAut,$artCat,$artCon,$artCre,$artUser);
+  }
+
+  public function deleteArticle($valueArt,$valueDate) {
+    $newArticle = (new ArticleRepository())->deleteArticle($valueArt,$valueDate);
+  }
+
 }
 
 
@@ -74,39 +115,26 @@ class MainController {
 $action = new MainController();
 
 
-// Create a new object and request to select
-$users = (new UserRepository())->findAll();
+// Request's traitement for the article
+require_once __DIR__.'/../src/BlogBundle/Repository/requestRepository.php';
 
-$identity = "Bonjour ";
-$statut = "KO ";
 
-if (isset($_SESSION['pseudo'])) { 
-  foreach($users as $user) {
-    $temp = $user->getUserPseudo();
-  
-    if($temp === $_SESSION['pseudo']) {
-      $identity = $identity.$_SESSION['pseudo'];
-      $statut = "OK";
-    } 
-  }
-}
-  
-// var_dump($_GET['page']);
-// var_dump($statut);
-// Switch on the data get in URL
+// Switch on the data get in URL for the view
 if ($statut === "OK") {
-  if ($_GET['page'] == 'admin') {
-    $testBeta = $action->adminAction();
-  } else if ($_GET['page'] == 'listing') {
-    $testBeta = $action->listingAction();
-  } else if ($_GET['page'] == 'accueil') {
-    $testBeta = $action->accueilAction();
+  $action->setUserActive($_SESSION['pseudo']);
+  if ($_GET['page'] === 'admin') {
+    $viewData = $action->adminAction();
+  } else if ($_GET['page'] === 'listing') {
+    $viewData = $action->listingAction();
+  } else if ($_GET['page'] === 'accueil') {
+    $viewData = $action->accueilAction();
   } else {
-    $testBeta = $action->defaultAction();    
+    $viewData = $action->defaultAction();    
   } 
 } else {
-  $testBeta = $action->connexionAction();
+  $viewData = $action->connexionAction();
 }
 
+
 // Render the view
-require_once $testBeta['view'];
+require_once $viewData['view'];
