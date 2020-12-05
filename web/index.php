@@ -5,6 +5,11 @@ session_start();
 if((isset($_GET['pseudo'])) && (isset($_GET['password']))) {
   $_SESSION['pseudo'] = $_GET['pseudo'];
   $_SESSION['password'] = hash('sha256',trim($_GET['password']));
+} else if (isset($_GET['deconnexion'])) {
+  // Destroy session
+  session_destroy();
+  unset($_SESSION['pseudo']);
+  unset($_SESSION['password']);
 }
 
 
@@ -104,10 +109,13 @@ class MainController {
     $newArticle = (new ArticleRepository())->newArticle($artTit,$artAut,$artCat,$artCon,$artCre,$artUser);
   }
 
-  public function deleteArticle($valueArt,$valueDate) {
-    $newArticle = (new ArticleRepository())->deleteArticle($valueArt,$valueDate);
+  public function deleteArticle($valueDelID,$valueDelDate) {
+    $newArticle = (new ArticleRepository())->deleteArticle($valueDelID,$valueDelDate);
   }
 
+  public function modifyArticle($valueMod,$champsModify,$champsValue,$dateMod) {
+    $newArticle = (new ArticleRepository())->modifyArticle($valueMod,$champsModify,$champsValue,$dateMod);
+  }
 }
 
 

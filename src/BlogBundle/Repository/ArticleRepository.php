@@ -38,6 +38,11 @@ class ArticleRepository {
     $results->execute();
   }
 
+  public function modifyArticle($valueMod,$champsModify,$champsValue,$dateMod) {
+    $results = $this->_db->prepare("UPDATE `article` SET $champsModify = '$champsValue', `modifiedAt`= '$dateMod' WHERE `id` = '$valueMod'");
+    $results->execute();
+  }
+
   public function newArticle($newTit,$newAut,$newCat,$newCon,$newCre,$newUser) {
     $results = $this->_db->prepare("INSERT INTO `article`(`title`, `author`, `category`, `createdAt`, `content`, `user_article`) VALUES ('$newTit','$newAut','$newCat','$newCre','$newCon','$newUser')");
     $results->execute();

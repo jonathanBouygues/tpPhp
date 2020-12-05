@@ -25,6 +25,9 @@
   <div class="log">
   
     <?php echo '<span>'.$identity.'</span>';?>
-    <button>Déconnexion</button>
+    <form id="formDeco"action="index.php" method="get">
+      <input type="hidden" name="deconnexion">
+      <button>Déconnexion</button>
+    </form>
   </div>
 </header>

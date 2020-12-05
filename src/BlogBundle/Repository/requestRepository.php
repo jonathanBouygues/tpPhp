@@ -15,7 +15,13 @@ if (isset($_GET['title'])) {
   $newCreate = date('Y-m-d');
   $users->newUser($newNom, $newPrenom, $newPseudo, $newMdp, $newCreate);
 } else if (isset($_GET['valueDel'])) {
-  $valueDel = trim($_GET['valueDel']);
-  $dateDel = date('Y-m-d');
-  $action->deleteArticle($valueDel,$dateDel);
+  $valueDelID = trim($_GET['valueDel']);
+  $valueDelDate = date('Y-m-d');
+  $action->deleteArticle($valueDelID,$valueDelDate);
+} else if (isset($_GET['valueMod'])) {
+  $valueMod = trim($_GET['valueMod']);
+  $champsModify = trim($_GET['champsModify']);
+  $champsValue = trim($_GET['champsValue']);
+  $dateMod = date('Y-m-d');
+  $action->modifyArticle($valueMod, $champsModify, $champsValue,$dateMod);
 }

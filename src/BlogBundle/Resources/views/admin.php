@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="shortcut icon" href="./image/favicon.png" type="image/png">
     <title>Admin</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -56,7 +56,15 @@
                     </form>
                     <button id="actionMod">Modifier</button>
                     <form id="formModArt" action="index.php" method="get">
-                        <input type="" name="valueMod" value="">
+                        <select name="champsModify">
+                            <option value="title">Titre</option>
+                            <option value="author">Auteur</option>
+                            <option value="category">Categorie</option>
+                            <option value="createdAt">Date de création</option>
+                            <option value="content">Description</option>
+                        </select>
+                        <input type="text" name="champsValue">
+                        <input type="hidden" name="valueMod" value="">
                         <input type="hidden" name="page" value="admin">
                         <input type="submit" value="Modifier form">
                     </form>
