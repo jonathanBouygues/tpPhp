@@ -12,7 +12,7 @@ class ArticleRepository {
   }
   
   public function findAll($pseudoID) {
-    $results = $this->_db->prepare("SELECT id,title, author, category, content FROM Article INNER JOIN User ON user_article = user_id WHERE user_pseudo = '$pseudoID' AND archive IS NULL");
+    $results = $this->_db->prepare("SELECT id,title, category, content FROM Article INNER JOIN User ON userArticle = user_id WHERE user_pseudo = '$pseudoID' AND archive IS NULL");
     $results->execute();
 
     // Add bind param
@@ -24,7 +24,6 @@ class ArticleRepository {
       $articles[] = new Article(
         $article['id'],
         $article['title'],
-        $article['author'],
         $article['category'],
         $article['content']
       );
@@ -43,8 +42,8 @@ class ArticleRepository {
     $results->execute();
   }
 
-  public function newArticle($newTit,$newAut,$newCat,$newCon,$newCre,$newUser) {
-    $results = $this->_db->prepare("INSERT INTO `article`(`title`, `author`, `category`, `createdAt`, `content`, `user_article`) VALUES ('$newTit','$newAut','$newCat','$newCre','$newCon','$newUser')");
+  public function newArticle($newTit,$newCat,$newCon,$newCre,$newUser) {
+    $results = $this->_db->prepare("INSERT INTO `article`(`title`, `category`, `createdAt`, `content`, `userArticle`) VALUES ('$newTit','$newCat','$newCre','$newCon','$newUser')");
     $results->execute();
   }
 }

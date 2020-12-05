@@ -105,8 +105,8 @@ class MainController {
     $this->activeUser = $userActive;
   }
 
-  public function newArticle($artTit,$artAut,$artCat,$artCon,$artCre,$artUser) {
-    $newArticle = (new ArticleRepository())->newArticle($artTit,$artAut,$artCat,$artCon,$artCre,$artUser);
+  public function newArticle($artTit,$artCat,$artCon,$artCre,$artUser) {
+    $newArticle = (new ArticleRepository())->newArticle($artTit,$artCat,$artCon,$artCre,$artUser);
   }
 
   public function deleteArticle($valueDelID,$valueDelDate) {

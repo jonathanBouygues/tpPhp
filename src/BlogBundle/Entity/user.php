@@ -31,9 +31,4 @@ class User {
   public function getUserMdp(): string { return $this->_userMdp; }
   public function getUserCreated(): string { return $this->_userCreated; }
 
-  // public function setTitle(string $title): void { $this->_title = $title; }
-  // public function setAuthor(string $author): void { $this->_author = $author; }
-  // public function setCategory(string $category): void { $this->_category = $category; }
-  // public function setModifiedAt(string $modifiedAt): void { $this->_modifiedAt = $modifiedAt; }
-  // public function setContent(string $content): void { $this->_content = $content; }
 }

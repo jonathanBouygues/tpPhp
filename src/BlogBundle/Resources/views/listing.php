@@ -22,7 +22,6 @@
         <article>
           <h1><?= $article->getTitle() ?></h1>
           <div class="meta-data">
-            <span class="author">Auteur: <?= $article->getAuthor() ?></span> -
             <span class="category">Catégorie: <?= $article->getCategory() ?></span> -
             <span class="creation-date">Date: <?= $article->getCreatedAt() ?></span>
           </div>

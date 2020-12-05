@@ -2,11 +2,10 @@
 // Request traitement of article
 if (isset($_GET['title'])) {
   $artTitle = $_GET['title'];
-  $artAuthor = $_GET['author'];
   $artCategory = $_GET['category'];
   $artContent = $_GET['content'];
   $artDatCreate = date('Y-m-d');
-  $action->newArticle($artTitle,$artAuthor,$artCategory,$artContent,$artDatCreate,$actualID);
+  $action->newArticle($artTitle,$artCategory,$artContent,$artDatCreate,$actualID);
 } else if (isset($_GET['newNom'])) {
   $newNom = trim($_GET['newNom']);
   $newPrenom = trim($_GET['newPrenom']);

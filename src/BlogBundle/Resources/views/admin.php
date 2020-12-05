@@ -26,8 +26,6 @@
                 <form action="index.php" method="get">
                     <label for="">Title</label>
                     <input type="text" name="title" id="">
-                    <label for="">Author</label>
-                    <input type="text" name="author">
                     <label for="">Category</label>
                     <input type="text" name="category">
                     <label for="">Content</label>
@@ -58,7 +56,6 @@
                     <form id="formModArt" action="index.php" method="get">
                         <select name="champsModify">
                             <option value="title">Titre</option>
-                            <option value="author">Auteur</option>
                             <option value="category">Categorie</option>
                             <option value="createdAt">Date de création</option>
                             <option value="content">Description</option>
