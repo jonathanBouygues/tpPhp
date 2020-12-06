@@ -7,7 +7,7 @@
     <title>Connexion</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/dyna.js" defer></script>
+    <script src="./js/dynaConnexion.js" defer></script>
 </head>
 <body>
 

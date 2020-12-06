@@ -127,20 +127,20 @@ $action = new MainController();
 require_once __DIR__.'/../src/BlogBundle/Repository/requestRepository.php';
 
 
-// Switch on the data get in URL for the view
-if ($statut === "OK") {
+// If/Else on the data get in URL for the view
+if (($statut === "KO") || (!isset($_GET['page']))) {
+  $viewData = $action->connexionAction();
+} else {
   $action->setUserActive($_SESSION['pseudo']);
   if ($_GET['page'] === 'admin') {
     $viewData = $action->adminAction();
   } else if ($_GET['page'] === 'listing') {
     $viewData = $action->listingAction();
   } else if ($_GET['page'] === 'accueil') {
-    $viewData = $action->accueilAction();
+    $viewData = $action->accueilAction();    
   } else {
     $viewData = $action->defaultAction();    
-  } 
-} else {
-  $viewData = $action->connexionAction();
+  }
 }
 
 

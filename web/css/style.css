@@ -57,6 +57,7 @@ ul li {
 }
 
 h1, h2, label,span {text-align: center;}
+p {text-align: justify;}
 
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
@@ -135,4 +136,21 @@ main.containerAdmin div.containerNew form {
 
 main.containerAdmin div.containerModDel form#formModArt {
   display: none;
+}
+
+
+/* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
+/* █▄██▄█ Page 404  █▄██▄█ */
+main.container404 {
+  justify-content: center;
+  align-items: center;
+}
+
+main.container404 p.textRed {
+  font-style: italic;
+  color: red;
+}
+
+main.container404 figure cite  {
+  margin: 40px;
 }
