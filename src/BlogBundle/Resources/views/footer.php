@@ -1,3 +1,4 @@
 <footer>
-  <span>mon footer</span>
+  <span>&copy monlisting.com</span>
+  <span>Mentions légales - Contact - Presse</span>
 </footer>

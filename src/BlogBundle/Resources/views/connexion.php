@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./image/favicon.png" type="image/png">
-    <title>Connexion</title>
+    <title>Mon listing - Connexion</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/dynaConnexion.js" defer></script>
@@ -20,7 +20,7 @@
                 <label for="">Mot de passe</label>
                 <input type="password" name="password">
                 <input type="hidden" name="page" value="accueil">
-                <input type="submit" name="" id="">
+                <input type="submit" value="Log in">
         </form>
 
         <button id="actionNew">Nouvel user</button>

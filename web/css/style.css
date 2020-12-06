@@ -4,7 +4,7 @@
   /* couleur */
   --coulAlpha: rgb(26, 145, 26);
   --coulBeta: rgb(235, 224, 224);
-  --coulDelta: rgb(202, 164, 164);
+  --coulDelta: rgb(214, 184, 184);
   --coulTexte: #333333;
 }
 
@@ -56,8 +56,11 @@ ul li {
   margin: 10px;
 }
 
-h1, h2, label,span {text-align: center;}
-p {text-align: justify;}
+h1, h2, label,span, input, label, select {text-align: center;}
+input, button, textarea, select {border-radius: 10px;}
+p {text-align: justify;} 
+label, input[type=submit] {font-weight: bold;}
+
 
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
@@ -69,12 +72,22 @@ header div.log {
   height: 80%;
 }
 
+header div.log span {
+  font-weight: bold;
+}
+
+header nav input,
+header div.log button {
+  padding: 5px 10px;
+}
 
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
 /* █▄██▄█ Page Connexion  █▄██▄█ */
 main.containerConnexion {
-  border-radius: 20px;
+  border-radius: 10px;
+  align-items: center;
+  background-color: var(--coulAlpha);
 }
 
 main.containerConnexion form.formConnexion,
@@ -85,10 +98,25 @@ main.containerConnexion form.formNewUser {
   align-items: center;
   height: 400px;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px 40px;
 }
 
 main.containerConnexion form.formNewUser {display: none;}
+
+main.containerConnexion button {
+  width: 50%;
+  font-style: italic;
+}
+
+main.containerConnexion form.formConnexion input,
+main.containerConnexion form.formNewUser input  {
+  background-color: var(--coulBeta);
+}
+
+main.containerConnexion form.formConnexion input[type=submit],
+main.containerConnexion form.formNewUser input[type=submit] {
+  padding: 5px 10px;
+}
 
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
@@ -102,12 +130,21 @@ main.containerAccueil {
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
 /* █▄██▄█ Page Listing  █▄██▄█ */
 main.containerListing {
-  width: 40%;
+  width: 60%;
   flex-direction: column;
   justify-content: flex-start;
   overflow: auto;
 }
 
+main.containerListing div.articles article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--coulTexte);
+  border-radius: 5px;
+  margin: 10px 5px;
+  background-color: var(--coulDelta);
+}
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
 /* █▄██▄█ Page Admin  █▄██▄█ */
@@ -124,14 +161,63 @@ main.containerAdmin div.containerActionAdmin {
   height: 80%;
 }
 
-div.containerAdmin div.containerNew {
+main.containerAdmin div.containerNew,
+main.containerAdmin div.containerModDel {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid var(--coulTexte);
+  background-color: var(--coulDelta);
+  height: 95%;
+  width: 30%;
+  border-radius: 10px;
 }
 
 main.containerAdmin div.containerNew form {
   display: flex;
   flex-direction: column;
+}
+
+main.containerAdmin div.containerNew form input,
+main.containerAdmin div.containerNew form label,
+main.containerAdmin div.containerModDel form input,
+main.containerAdmin div.containerModDel form label {
+  margin: 5px 0px;
+}
+
+main.containerAdmin div.containerNew form input:last-child {
+  margin: 15px 20px;
+}
+
+main.containerAdmin div.containerModDel div#containerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+} 
+
+main.containerAdmin div#containerButton select {
+  width: 60%;
+} 
+
+main.containerAdmin div#containerButton div:last-child {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  width: 90%;
+}
+
+main.containerAdmin div#containerButton div:last-child button,
+main.containerAdmin div#containerButton div:last-child form#DelArt  {
+  width: 40%;
+}
+
+main.containerAdmin div#containerButton div:last-child button {
+  font-weight: bold;
 }
 
 main.containerAdmin div.containerModDel form#formModArt {
