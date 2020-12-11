@@ -12,7 +12,7 @@ class ArticleRepository {
   }
   
   public function findAll($pseudoID) {
-    $results = $this->_db->prepare("SELECT id,title, category, content FROM Article INNER JOIN User ON userArticle = user_id WHERE user_pseudo = '$pseudoID' AND archive IS NULL");
+    $results = $this->_db->prepare("SELECT id,title, category, content, createdAt FROM Article INNER JOIN User ON userArticle = user_id WHERE user_pseudo = '$pseudoID' AND archive IS NULL");
     $results->execute();
 
     // Add bind param
@@ -25,6 +25,7 @@ class ArticleRepository {
         $article['id'],
         $article['title'],
         $article['category'],
+        $article['createdAt'],
         $article['content']
       );
     }

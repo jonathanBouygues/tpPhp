@@ -64,7 +64,7 @@
                             <input type="text" name="champsValue">
                             <input type="hidden" name="valueMod" value="">
                             <input type="hidden" name="page" value="admin">
-                            <input type="submit" value="Modifier form">
+                            <input type="submit" value="Modifier">
                         </form>
                     </div>
                 </div>

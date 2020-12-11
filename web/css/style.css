@@ -49,15 +49,24 @@ nav ul {
   display: flex;
   justify-content: center;
   padding: 0;
-}
+} 
 
 ul li {
   list-style: none;
   margin: 10px;
 }
 
+li:hover, button:hover, input[type=submit]:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 h1, h2, label,span, input, label, select {text-align: center;}
-input, button, textarea, select {border-radius: 10px;}
+input, button, textarea, select {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 p {text-align: justify;} 
 label, input[type=submit] {font-weight: bold;}
 
@@ -211,6 +220,12 @@ main.containerAdmin div#containerButton div:last-child {
   width: 90%;
 }
 
+main.containerAdmin div#containerButton form#formDelArt {
+  width: 40%;
+  justify-content: center;
+  display: flex;
+}
+
 main.containerAdmin div#containerButton div:last-child button,
 main.containerAdmin div#containerButton div:last-child form#DelArt  {
   width: 40%;
@@ -222,8 +237,17 @@ main.containerAdmin div#containerButton div:last-child button {
 
 main.containerAdmin div.containerModDel form#formModArt {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
 }
 
+main.containerAdmin form#formModArt select, 
+main.containerAdmin form#formModArt input {
+  width: 100%;
+  margin: 10px 0;
+}
 
 /* ╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩╔╩ */
 /* █▄██▄█ Page 404  █▄██▄█ */

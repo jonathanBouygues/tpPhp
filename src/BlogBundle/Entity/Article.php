@@ -12,12 +12,13 @@ class Article {
     string $id,
     string $title,
     string $category,
+    string $createdAt,
     string $content
   ) {
     $this->_id = $id;
     $this->_title = $title;
     $this->_category = $category;
-    $this->_createdAt = date('d/m/Y');
+    $this->_createdAt = $createdAt;
     $this->_modifiedAt = null;
     $this->_content = $content;
   }
