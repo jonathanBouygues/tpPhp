@@ -21,7 +21,7 @@
 
         <div class="containerActionAdmin">
             <div class="containerNew">
-                <h2>New article</h2>
+                <h2>Nouvel article</h2>
 
                 <form action="index.php" method="get">
                     <label for="">Title</label>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="containerModDel">
-                <h2>Modify/Delete</h2>
+                <h2>Modifier/Supprimer</h2>
 
                 <div id="containerButton">
                     <select name="" id="valueArticle">
@@ -53,7 +53,9 @@
                             <input type="hidden" name="page" value="admin">
                             <input type="submit" value="Supprimer">
                         </form>
-                        <button id="actionMod">Modifier</button>
+                        <div class="containerButMod">
+                            <button id="actionMod">Modifier</button>
+                        </div>
                         <form id="formModArt" action="index.php" method="get">
                             <select name="champsModify">
                                 <option value="title">Titre</option>

@@ -220,19 +220,20 @@ main.containerAdmin div#containerButton div:last-child {
   width: 90%;
 }
 
-main.containerAdmin div#containerButton form#formDelArt {
+main.containerAdmin div#containerButton form#formDelArt,
+main.containerAdmin div#containerButton div.containerButMod {
   width: 40%;
   justify-content: center;
   display: flex;
 }
 
-main.containerAdmin div#containerButton div:last-child button,
-main.containerAdmin div#containerButton div:last-child form#DelArt  {
-  width: 40%;
+main.containerAdmin form#formDelArt input[type=submit] {
+  width: 100%;
 }
 
 main.containerAdmin div#containerButton div:last-child button {
   font-weight: bold;
+  width: 100%;
 }
 
 main.containerAdmin div.containerModDel form#formModArt {
